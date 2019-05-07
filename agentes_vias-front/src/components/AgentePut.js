@@ -69,8 +69,15 @@ class AgentePut extends Component{
         codigoSecretT:codigoSecretT,
         viaActual:viaActual
       }
-      axios.put('http://localhost:8080/s1_Agentes_Vias-api/api/agentes/'+this.state.id, agente);
+      this.saveput(agente);
       console.log(this.state.id);
+    }
+    saveput=(obj)=>{
+      axios.put('http://localhost:8080/s1_Agentes_Vias-api/api/agentes/'+this.state.id, obj)
+      .catch(function (error) {
+        console.log(error.response.dat);
+        alert(error.response.data);
+      });
     }
   render(){
     return(

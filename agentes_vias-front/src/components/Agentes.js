@@ -52,16 +52,22 @@ class Agentes extends Component{
         codigoSecretT:codigoSecretT,
         viaActual:viaActual,
       }
-      axios.post('http://localhost:8080/s1_Agentes_Vias-api/api/agentes', agente);
+      this.savepost(agente);
 
       return false;
+    }
+    savepost=(agente)=>{
+        axios.post('http://localhost:8080/s1_Agentes_Vias-api/api/agentes', agente)
+        .catch(function (error) {
+          alert(error.response.data);
+        });
     }
   render(){
     return(
       <div className="row container-fuid d-flex justify-content-center">
         <div className='row'>
-          <table class="table text-center">
-            <thead class="thead-dark">
+          <table className="table text-center">
+            <thead className="thead-dark">
               <tr>
                 <th scope="col">Identificador</th>
                 <th scope="col">Nombre</th>

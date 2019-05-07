@@ -34,9 +34,11 @@ class Vias extends Component{
         numero:numero,
         nivelCongestion:nivelCongestion
       }
-      axios.post('http://localhost:8080/s1_Agentes_Vias-api/api/vias', via);
-      window.location.href = 'http://localhost:3000/Vias';
+      this.savepostvia(via)
       return false;
+    }
+    savepostvia=(via)=>{
+      axios.post('http://localhost:8080/s1_Agentes_Vias-api/api/vias', via);
     }
   render(){
     return(

@@ -53,8 +53,15 @@ class ViasPut extends Component{
         numero:n,
         nivelCongestion:cong
       }
-      axios.put('http://localhost:8080/s1_Agentes_Vias-api/api/vias'+this.state.id, via);
+      this.saveputvia(via);
       console.log(this.state.id);
+    }
+
+    saveputvia=(via)=>{
+      axios.put('http://localhost:8080/s1_Agentes_Vias-api/api/vias/'+this.state.id, via)
+      .then(()=>{
+      window.location.href = 'http://localhost:3000/Vias';
+    });
     }
   render(){
     return(

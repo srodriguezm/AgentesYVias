@@ -4,9 +4,13 @@ import {Link} from 'react-router-dom';
 import axios from 'axios'
 class Agente extends Component{
     deleteAgente=()=>{
-      axios.delete('http://localhost:8080/s1_Agentes_Vias-api/api/agentes/'+this.props.data.id);
+      axios.delete('http://localhost:8080/s1_Agentes_Vias-api/api/agentes/'+this.props.data.id)
+      .then(()=>{
       window.location.href = 'http://localhost:3000/Agentes';
+    });
+
     }
+
   render(){
     return(
       <tr>
